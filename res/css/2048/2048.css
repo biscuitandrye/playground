@@ -1,0 +1,35 @@
+.game-2048-board {
+
+}
+
+.moves-label {
+    margin-left: 20px;
+}
+
+.new-game-btn {
+    margin-left: 10px;
+}
+
+.game-2048-table {
+    display: table;
+}
+
+.game-2048-table-row {
+    display: table-row;
+}
+
+.game-2048-table-cell {
+    display: table-cell;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    /* border: 1px solid black; */
+}
+
+.empty-cell {
+    background-color: gray;
+}
+
+.thumbnail {
+    margin-bottom:0px;
+}
