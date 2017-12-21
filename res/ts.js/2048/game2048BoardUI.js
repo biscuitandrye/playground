@@ -1,6 +1,6 @@
-var GameBoardUI = /** @class */ (function () {
-    function GameBoardUI($gameContent) {
-        this.gridBoardModel = new GameBoard(4);
+var Game2048BoardUI = /** @class */ (function () {
+    function Game2048BoardUI($gameContent) {
+        this.gridBoardModel = new Game2048Board(4);
         var $gameWindow = $("<div class='game-2048-window container'></div");
         $gameContent.append($gameWindow);
         this.buildSummary($gameWindow);
@@ -11,11 +11,11 @@ var GameBoardUI = /** @class */ (function () {
         this.addListeners();
         this.refreshBoard();
     }
-    GameBoardUI.prototype.reset = function () {
+    Game2048BoardUI.prototype.reset = function () {
         this.$move.text("0");
         this.$score.text("0");
     };
-    GameBoardUI.prototype.addListeners = function () {
+    Game2048BoardUI.prototype.addListeners = function () {
         var self = this;
         if ($.detectSwipe.enabled) {
             $(document)
@@ -65,7 +65,7 @@ var GameBoardUI = /** @class */ (function () {
             self.refreshBoard();
         });
     };
-    GameBoardUI.prototype.buildSummary = function ($gameWindow) {
+    Game2048BoardUI.prototype.buildSummary = function ($gameWindow) {
         var $gameSummary = $("<div class = 'game-2048-summary'></div>");
         $gameWindow.append($gameSummary);
         $gameSummary.append("<span class='scores-label'>Score: </span>");
@@ -80,7 +80,7 @@ var GameBoardUI = /** @class */ (function () {
         $gameSummary.append($newGameButton);
         this.$button = $newGameButton;
     };
-    GameBoardUI.prototype.buildBoard = function ($gameBoardContainer) {
+    Game2048BoardUI.prototype.buildBoard = function ($gameBoardContainer) {
         this.$grid = [];
         var $gameTable = $("<div class='game-2048-table'></div>");
         $gameBoardContainer.append($gameTable);
@@ -109,7 +109,7 @@ var GameBoardUI = /** @class */ (function () {
         }
         */
     };
-    GameBoardUI.prototype.refreshBoard = function () {
+    Game2048BoardUI.prototype.refreshBoard = function () {
         var board = this.gridBoardModel;
         for (var i = 0; i < board.getSize(); i++) {
             // var col = board.getColumn(i);
@@ -117,7 +117,7 @@ var GameBoardUI = /** @class */ (function () {
             for (var j = 0; j < col.length; j++) {
                 var square = col[j];
                 var value = square.getValue();
-                this.setElementOnCell(this.$grid[i][j], GameBoardUtils.getImagePath(value), value);
+                this.setElementOnCell(this.$grid[i][j], Game2048BoardUtils.getImagePath(value), value);
                 // this.$grid[i][j].text(value ? value+'' : ' ');
             }
         }
@@ -125,7 +125,7 @@ var GameBoardUI = /** @class */ (function () {
         this.$score.text(this.gridBoardModel.getGameInfo().getTotalScore() + '');
         this.$move.text(this.gridBoardModel.getGameInfo().getTotalMoves() + '');
     };
-    GameBoardUI.prototype.setElementOnCell = function ($ele, imgPath, value) {
+    Game2048BoardUI.prototype.setElementOnCell = function ($ele, imgPath, value) {
         $ele.empty();
         if (imgPath === "") {
             // $ele.addClass('empty-cell');
@@ -145,5 +145,5 @@ var GameBoardUI = /** @class */ (function () {
         $value.text(value === 0 ? ' ' : value + '');
         $ele.append($value);
     };
-    return GameBoardUI;
+    return Game2048BoardUI;
 }());

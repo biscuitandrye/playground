@@ -57,7 +57,7 @@ var Game2048Board = /** @class */ (function (_super) {
             var lengthBlanks = this.getBlanks().length;
             var fillIndex = Math.floor(Math.random() * lengthBlanks);
             var randSquare = this.getBlanks()[fillIndex];
-            randSquare.setValue((Math.random() > GameUtils.GEN_NUM_1_PROB && useProb) ? GameUtils.GEN_NUM_2 : GameUtils.GEN_NUM_1);
+            randSquare.setValue((Math.random() > Game2048Utils.GEN_NUM_1_PROB && useProb) ? Game2048Utils.GEN_NUM_2 : Game2048Utils.GEN_NUM_1);
             this.updateBlanks();
         }
     };

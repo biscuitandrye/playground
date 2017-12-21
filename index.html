@@ -13,8 +13,9 @@
     <script src="https://use.fontawesome.com/6571cc5696.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"> 
     <link rel="stylesheet" href="res/css/2048/2048.css">
+    <link rel="stylesheet" href="res/css/catsweeper/catsweeper.css">
 
 </head>
 <body>
@@ -45,13 +46,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">2048</a>
+                                <a href="#">11 Meows</a>
                             </li>
                             <li>
                                 <a href="#">Catsweeper</a>
-                            </li>
-                            <li>
-                                <a href="#">Cats</a>
                             </li>
                         </ul>
                     </li>
@@ -67,22 +65,35 @@
         </div>
     </div> -->
     <div id="game-content"></div>
+    <script type="text/javascript" src="res/ts.js/playground/playgroundUtils.js"></script>
 
     <script type="text/javascript" src="res/ts.js/board/board.js"></script>
     <script type="text/javascript" src="res/ts.js/board/boardSquare.js"></script>
     <script type="text/javascript" src="res/ts.js/board/direction.js"></script>
-    <script type="text/javascript" src="res/ts.js/2048/gameUtils.js"></script>
+    <script type="text/javascript" src="res/ts.js/board/blockSquare.js"></script>
+    
+    <script type="text/javascript" src="res/ts.js/2048/game2048Utils.js"></script>
     <script type="text/javascript" src="res/ts.js/2048/moveUtils.js"></script>    
-    <script type="text/javascript" src="res/ts.js/2048/blockSquare.js"></script>
     <script type="text/javascript" src="res/ts.js/2048/gameInfo.js"></script>
     <script type="text/javascript" src="res/ts.js/2048/moveInfo.js"></script>
-    <script type="text/javascript" src="res/ts.js/2048/gameBoard.js"></script>
-    <script type="text/javascript" src="res/ts.js/2048/gameBoardUtils.js"></script>
-    <script type="text/javascript" src="res/ts.js/2048/gameBoardUI.js"></script>
+    <script type="text/javascript" src="res/ts.js/2048/game2048Board.js"></script>
+    <script type="text/javascript" src="res/ts.js/2048/game2048BoardUtils.js"></script>
+    <script type="text/javascript" src="res/ts.js/2048/game2048BoardUI.js"></script>
+
+    <script type="text/javascript" src="res/ts.js/catsweeper/mineFieldUI.js"></script>
 
     <script>
         $(function(){
-            new GameBoardUI($('#game-content'));
+            // fetch the images
+            var paths = PlaygroundUtils.IMAGE_PATHS;
+            var $deferred = [];
+            $(paths).each(function () {
+                $('<img />').attr('src', this).appendTo('body').css('display', 'none');
+            });
+            // $.when($deferred, function(){
+                new Game2048BoardUI($('#game-content'));
+                // new GameFieldUI($('#game-content'));
+            // })
         })
     </script>
 </body>

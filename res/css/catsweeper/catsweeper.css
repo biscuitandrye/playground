@@ -1,0 +1,46 @@
+.canvas {
+    background:url('../../images/cat_play.jpg');
+    width:350px;
+    height:350px;
+}
+.cell {    
+    float:left;    
+    position:relative;
+    cursor:pointer;
+}
+.cell > .front {            
+    -webkit-backface-visibility: hidden; 
+    backface-visibility:hidden;
+    -webkit-transform-style:preserve-3d;
+    transition:all 1s;
+    text-align: center;
+}
+.cell:not(.flipped) > .back {
+    /* -webkit-transform:rotateY(180deg); */
+}
+.cell.flipped > .front {
+    /* -webkit-transform:rotateY(180deg); */
+}
+.back {
+    background-repeat: no-repeat;
+}
+.cell > .back {
+    position:absolute;
+    text-align:center;
+    font-size:30px;
+    left:0;
+    top:0;    
+    transition:all 1s;    
+}
+.cell > .back:before {
+    content:'';
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.cell > * {
+    border: 0.5px solid lightslategray;    
+    box-sizing:border-box; 
+    width:100%;
+    height:100%;
+}

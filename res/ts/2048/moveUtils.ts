@@ -5,7 +5,7 @@ class MoveUtils {
      * @param direction
      * @return the total number of points earned
      */
-    public static move(board: GameBoard, direction: Direction, moveInfo: MoveInfo) {
+    public static move(board: Game2048Board, direction: Direction, moveInfo: MoveInfo) {
         if (direction == Direction.UP || direction == Direction.DOWN) {
             // want COLUMNS
             for (var i = 0; i < board.getSize(); i++) {
