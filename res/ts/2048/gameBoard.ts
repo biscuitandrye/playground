@@ -28,8 +28,8 @@ class GameBoard extends Board<BlockSquare>{
     /**
      * Generates 2 random squares
      */
-    public reset(size: number) {
-        super.reset(size);
+    public reset() {
+        super.reset();
         if (this.gameInfo != null) {
             this.gameInfo.reset();
         }

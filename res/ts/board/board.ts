@@ -6,11 +6,11 @@ abstract class Board <T extends BoardSquare>{
     
     constructor (private size : number) {
         this.blanks = [];
-        this.reset(size);
+        this.reset();
     }
 
-    protected reset (size : number) {
-        this.board = this.createArrayBoard(size);
+    protected reset () {
+        this.board = this.createArrayBoard(this.size);
         this.updateBlanks();
         this.collectColumns();
     }

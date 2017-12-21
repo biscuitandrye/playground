@@ -17,28 +17,53 @@ var GameBoardUI = /** @class */ (function () {
     };
     GameBoardUI.prototype.addListeners = function () {
         var self = this;
-        $(document).keyup(function (event) {
-            // only respond to up, down, left, right
-            var direction = null;
-            switch (event.which) {
-                case 37:
-                    direction = Direction.LEFT;
-                    break;
-                case 38:
-                    direction = Direction.UP;
-                    break;
-                case 39:
-                    direction = Direction.RIGHT;
-                    break;
-                case 40:
-                    direction = Direction.DOWN;
-                    break;
-            }
-            if (direction !== null) {
-                self.gridBoardModel.moveBoard(direction);
+        if ($.detectSwipe.enabled) {
+            $(document)
+                .on('swipeleft', function () {
+                self.gridBoardModel.moveBoard(Direction.LEFT);
                 self.refreshBoard();
-            }
-        }.bind(this));
+            })
+                .on('swiperight', function () {
+                self.gridBoardModel.moveBoard(Direction.RIGHT);
+                self.refreshBoard();
+            })
+                .on('swipeup', function () {
+                self.gridBoardModel.moveBoard(Direction.UP);
+                self.refreshBoard();
+            })
+                .on('swipedown', function () {
+                self.gridBoardModel.moveBoard(Direction.DOWN);
+                self.refreshBoard();
+            });
+        }
+        else {
+            $(document).keyup(function (event) {
+                // only respond to up, down, left, right
+                var direction = null;
+                switch (event.which) {
+                    case 37:
+                        direction = Direction.LEFT;
+                        break;
+                    case 38:
+                        direction = Direction.UP;
+                        break;
+                    case 39:
+                        direction = Direction.RIGHT;
+                        break;
+                    case 40:
+                        direction = Direction.DOWN;
+                        break;
+                }
+                if (direction !== null) {
+                    self.gridBoardModel.moveBoard(direction);
+                    self.refreshBoard();
+                }
+            });
+        }
+        this.$button.click(function (event) {
+            self.gridBoardModel.reset();
+            self.refreshBoard();
+        });
     };
     GameBoardUI.prototype.buildSummary = function ($gameWindow) {
         var $gameSummary = $("<div class = 'game-2048-summary'></div>");
@@ -53,6 +78,7 @@ var GameBoardUI = /** @class */ (function () {
         $gameSummary.append($movesSpan);
         var $newGameButton = $("<button class='new-game-btn btn btn-sm'>New Game</button>");
         $gameSummary.append($newGameButton);
+        this.$button = $newGameButton;
     };
     GameBoardUI.prototype.buildBoard = function ($gameBoardContainer) {
         this.$grid = [];

@@ -2,10 +2,10 @@ var Board = /** @class */ (function () {
     function Board(size) {
         this.size = size;
         this.blanks = [];
-        this.reset(size);
+        this.reset();
     }
-    Board.prototype.reset = function (size) {
-        this.board = this.createArrayBoard(size);
+    Board.prototype.reset = function () {
+        this.board = this.createArrayBoard(this.size);
         this.updateBlanks();
         this.collectColumns();
     };

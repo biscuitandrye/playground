@@ -168,6 +168,8 @@ interface JQueryTransport {
 */
 interface JQueryStatic {
 
+    detectSwipe : any;
+
     // AJAX
     ajax(settings: JQueryAjaxSettings): JQueryXHR;
     ajax(url: string, settings: JQueryAjaxSettings): JQueryXHR;
@@ -707,14 +709,6 @@ interface JQuery {
     siblings(selector?: string): JQuery;
 
     slice(start: number, end?: number): JQuery;
-
-
-    // symphony widgets!
-    infaButton(options: any): JQuery;
-    infaDialog(options: any): JQuery;
-    infaTabs(options: any): JQuery;
-    infaForm(options: any): JQuery;
-    infaTable(options: any) : JQuery;
 }
 
 declare var jQuery: JQueryStatic;

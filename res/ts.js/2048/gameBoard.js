@@ -35,8 +35,8 @@ var GameBoard = /** @class */ (function (_super) {
     /**
      * Generates 2 random squares
      */
-    GameBoard.prototype.reset = function (size) {
-        _super.prototype.reset.call(this, size);
+    GameBoard.prototype.reset = function () {
+        _super.prototype.reset.call(this);
         if (this.gameInfo != null) {
             this.gameInfo.reset();
         }
