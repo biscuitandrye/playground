@@ -1,5 +1,5 @@
 class MineFieldUI {
-    private static OPACITY = 0.5+'';
+    private static OPACITY = 0.4+'';
     private static CANVAS_SIZE = 350;
     private static REVEALED_KEY = "revealed";
 
@@ -36,7 +36,7 @@ class MineFieldUI {
     }
 
     private buildSummary ($gameWindow: JQuery) {
-        var $gameSummary = $("<div class = 'game-mousesweeper-summary'></div>");
+        var $gameSummary = $("<div class = 'game-mousesweeper-summary summary'></div>");
         $gameWindow.append($gameSummary);
        
         $gameSummary.append("<span class='moves-label'>Moves: </span>");
@@ -126,7 +126,6 @@ class MineFieldUI {
             var adjacentSquares = MineUtils.getAdjacentSquares(square, this.mineField);
             var adjacentStack = adjacentSquares.slice(0, adjacentSquares.length);
             while (adjacentStack.length != 0) {
-                console.log("am i stuck? " + adjacentStack.length);
                 var pop = adjacentStack.pop();
                 var adjCoord = pop.getCoord();
                 var $adjCell = this.$mineGrid[adjCoord.y][adjCoord.x];

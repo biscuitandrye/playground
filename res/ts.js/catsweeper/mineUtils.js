@@ -85,8 +85,8 @@ var MineUtils = /** @class */ (function () {
             adjacentsMap[square.getCoord().getId()] = square;
         }
     };
-    MineUtils.NUM_MINES = 10;
-    MineUtils.FIELD_SIZE = 10;
+    MineUtils.NUM_MINES = 35;
+    MineUtils.FIELD_SIZE = 15;
     return MineUtils;
 }());
 var MineState;

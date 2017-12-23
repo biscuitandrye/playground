@@ -2,6 +2,14 @@
     font-family : Sacramento;
 }
 
+.dropdown {
+  font-family:Quattrocento Sans;
+}
+
+.summary {
+    font-family:Quattrocento Sans;
+}
+
 .switch {
   position: relative;
   display: inline-block;

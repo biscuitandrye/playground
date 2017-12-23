@@ -21,7 +21,7 @@ var MineFieldUI = /** @class */ (function () {
         });
     };
     MineFieldUI.prototype.buildSummary = function ($gameWindow) {
-        var $gameSummary = $("<div class = 'game-mousesweeper-summary'></div>");
+        var $gameSummary = $("<div class = 'game-mousesweeper-summary summary'></div>");
         $gameWindow.append($gameSummary);
         $gameSummary.append("<span class='moves-label'>Moves: </span>");
         var $movesSpan = $("<span>0</span>");
@@ -102,7 +102,6 @@ var MineFieldUI = /** @class */ (function () {
             var adjacentSquares = MineUtils.getAdjacentSquares(square, this.mineField);
             var adjacentStack = adjacentSquares.slice(0, adjacentSquares.length);
             while (adjacentStack.length != 0) {
-                console.log("am i stuck? " + adjacentStack.length);
                 var pop = adjacentStack.pop();
                 var adjCoord = pop.getCoord();
                 var $adjCell = this.$mineGrid[adjCoord.y][adjCoord.x];
@@ -152,7 +151,7 @@ var MineFieldUI = /** @class */ (function () {
         }
         $cell.data(MineFieldUI.REVEALED_KEY, true);
     };
-    MineFieldUI.OPACITY = 0.5 + '';
+    MineFieldUI.OPACITY = 0.4 + '';
     MineFieldUI.CANVAS_SIZE = 350;
     MineFieldUI.REVEALED_KEY = "revealed";
     return MineFieldUI;

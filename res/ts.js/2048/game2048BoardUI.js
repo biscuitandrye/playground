@@ -66,7 +66,7 @@ var Game2048BoardUI = /** @class */ (function () {
         });
     };
     Game2048BoardUI.prototype.buildSummary = function ($gameWindow) {
-        var $gameSummary = $("<div class = 'game-2048-summary'></div>");
+        var $gameSummary = $("<div class = 'game-2048-summary summary'></div>");
         $gameWindow.append($gameSummary);
         $gameSummary.append("<span class='scores-label'>Score: </span>");
         var $scoreSpan = $("<span>0</span>");

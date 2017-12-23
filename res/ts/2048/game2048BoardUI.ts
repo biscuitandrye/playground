@@ -81,7 +81,7 @@ class Game2048BoardUI {
     }
 
     private buildSummary ($gameWindow: JQuery) {
-        var $gameSummary = $("<div class = 'game-2048-summary'></div>");
+        var $gameSummary = $("<div class = 'game-2048-summary summary'></div>");
         $gameWindow.append($gameSummary);
         $gameSummary.append("<span class='scores-label'>Score: </span>");
         var $scoreSpan = $("<span>0</span>");

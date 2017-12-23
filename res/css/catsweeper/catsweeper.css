@@ -5,6 +5,7 @@
     float:left;    
     position:relative;
     cursor:pointer;
+    font-family: "Pangolin";
 }
 .cell > .front {            
     -webkit-backface-visibility: hidden; 

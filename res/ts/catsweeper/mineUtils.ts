@@ -1,7 +1,7 @@
 class MineUtils {
 
-    public static NUM_MINES = 10;
-    public static FIELD_SIZE = 10;
+    public static NUM_MINES = 35;
+    public static FIELD_SIZE = 15;
 
     public static generateMinesForField(field: MineField, numMines: number) {
         var size = field.getSize();
