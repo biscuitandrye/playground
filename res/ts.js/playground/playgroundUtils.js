@@ -12,7 +12,8 @@ var PlaygroundUtils = /** @class */ (function () {
         "res/images/cat_beer.jpg",
         "res/images/astro_cat.jpg",
         "res/images/cat_nap.jpg",
-        "res/images/cat_xmas.jpg"
+        "res/images/cat_xmas.jpg",
+        "res/images/mouse.jpg"
     ];
     return PlaygroundUtils;
 }());

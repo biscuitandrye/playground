@@ -14,6 +14,8 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+    <link rel="stylesheet" href="res/css/playground/playground.css">
     <link rel="stylesheet" href="res/css/2048/2048.css">
     <link rel="stylesheet" href="res/css/catsweeper/catsweeper.css">
 
@@ -32,7 +34,7 @@
                 </button>
                 <a class="navbar-brand" href="#">
                     <!-- <img src="res/images/alex_cat.jpg"/> -->
-                    Brand
+                    B & R
                 </a>
             </div>
     
@@ -46,10 +48,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">11 Meows</a>
+                                <a href="#" onclick="chooseGame('11Meows')">11 Meows</a>
                             </li>
                             <li>
-                                <a href="#">Catsweeper</a>
+                                <a href="#" onclick="chooseGame('mouseSweeper')">MouseSweeper</a>
                             </li>
                         </ul>
                     </li>
@@ -80,6 +82,9 @@
     <script type="text/javascript" src="res/ts.js/2048/game2048BoardUtils.js"></script>
     <script type="text/javascript" src="res/ts.js/2048/game2048BoardUI.js"></script>
 
+    <script type="text/javascript" src="res/ts.js/catsweeper/mineUtils.js"></script>
+    <script type="text/javascript" src="res/ts.js/catsweeper/mineFieldSquare.js"></script>
+    <script type="text/javascript" src="res/ts.js/catsweeper/mineField.js"></script>
     <script type="text/javascript" src="res/ts.js/catsweeper/mineFieldUI.js"></script>
 
     <script>
@@ -90,11 +95,21 @@
             $(paths).each(function () {
                 $('<img />').attr('src', this).appendTo('body').css('display', 'none');
             });
-            // $.when($deferred, function(){
-                new Game2048BoardUI($('#game-content'));
-                // new GameFieldUI($('#game-content'));
-            // })
+            // default game
+            new MineFieldUI($('#game-content'));
         })
+        function chooseGame (gameId) {
+            var $gameContent = $('#game-content');
+            $gameContent.empty();
+            switch (gameId) {
+                case '11Meows' :
+                    new Game2048BoardUI($gameContent);
+                    return false;
+                case 'mouseSweeper':
+                    new MineFieldUI($gameContent);
+                    return false;
+            }
+        }
     </script>
 </body>
 </html>

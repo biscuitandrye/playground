@@ -1,7 +1,5 @@
 .canvas {
-    background:url('../../images/cat_play.jpg');
-    width:350px;
-    height:350px;
+
 }
 .cell {    
     float:left;    

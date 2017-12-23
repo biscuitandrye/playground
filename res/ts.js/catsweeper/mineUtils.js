@@ -43,7 +43,9 @@ var MineUtils = /** @class */ (function () {
         var adjacents = [];
         for (var key in adjacentMap) {
             if (adjacentMap.hasOwnProperty(key)) {
-                adjacents.push(adjacentMap[key]);
+                if (adjacentMap[key] !== null) {
+                    adjacents.push(adjacentMap[key]);
+                }
             }
         }
         return adjacents;
@@ -83,8 +85,8 @@ var MineUtils = /** @class */ (function () {
             adjacentsMap[square.getCoord().getId()] = square;
         }
     };
-    MineUtils.NUM_MINES = 40;
-    MineUtils.FIELD_SIZE = 20;
+    MineUtils.NUM_MINES = 10;
+    MineUtils.FIELD_SIZE = 10;
     return MineUtils;
 }());
 var MineState;

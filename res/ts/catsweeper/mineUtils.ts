@@ -1,7 +1,7 @@
 class MineUtils {
 
-    public static NUM_MINES = 40;
-    public static FIELD_SIZE = 20;
+    public static NUM_MINES = 10;
+    public static FIELD_SIZE = 10;
 
     public static generateMinesForField(field: MineField, numMines: number) {
         var size = field.getSize();
@@ -46,7 +46,9 @@ class MineUtils {
         var adjacents = [];
         for (var key in adjacentMap) {
             if (adjacentMap.hasOwnProperty(key)) {
-               adjacents.push(adjacentMap[key]);
+                if (adjacentMap[key] !== null) {
+                    adjacents.push(adjacentMap[key]);
+                }
             }
         }
         return adjacents;

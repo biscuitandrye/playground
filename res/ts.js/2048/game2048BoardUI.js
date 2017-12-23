@@ -76,9 +76,14 @@ var Game2048BoardUI = /** @class */ (function () {
         var $movesSpan = $("<span>0</span>");
         this.$move = $movesSpan;
         $gameSummary.append($movesSpan);
+        this.buildToggle($gameSummary);
         var $newGameButton = $("<button class='new-game-btn btn btn-sm'>New Game</button>");
         $gameSummary.append($newGameButton);
         this.$button = $newGameButton;
+    };
+    Game2048BoardUI.prototype.buildToggle = function ($gameSummary) {
+        // var $toggle = $("<label><input type ='checkbox'>Show numbers</label>");
+        // $gameSummary.append($toggle);
     };
     Game2048BoardUI.prototype.buildBoard = function ($gameBoardContainer) {
         this.$grid = [];
